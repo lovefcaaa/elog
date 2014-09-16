@@ -1,5 +1,7 @@
 Enterprise-level log
 ===
+Installation: Famous 5-minute install
+===
 
 1. The form can be extended by a multitude of log processing.
 
