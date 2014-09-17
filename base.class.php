@@ -1,9 +1,21 @@
 <?php
+/*
+* PHP Enterprise-level log
+*
+* PHP Enterprise-level log is distributed under GPL 2
+* Copyright (C) 2014 lovefcaaa <https://github.com/lovefcaaa>
+*
+* This library is free software; you can redistribute it and/or
+* modify it under the terms of the GNU Lesser General Public
+* License as published by the Free Software Foundation; either
+* version 2 of the License, or any later version.
+*/
+
 /**
- * Php_Log_Base 
+ * elog_Base 
  * @author: lovefcaaa
  */
-abstract class Php_Log_Base {
+abstract class elog_Base {
 
 	const LOG_LEVEL     = 'VERBOSE,ERROR,FATAL';//Line allows recording log level
 	const LOG_EXCEPTION_RECORD = false;         //whether log exception information
@@ -24,7 +36,7 @@ abstract class Php_Log_Base {
 
 	function init(){
 		if(self::LOG_EXCEPTION_RECORD){
-			set_error_handler(array('Php_Log_Base','appError'));
+			set_error_handler(array('elog_Base','appError'));
 		}
 	}
 	
