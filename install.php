@@ -11,7 +11,6 @@
 * version 2 of the License, or any later version.
 */
 
-<?php
 /**
  * Php_Log install
  * @author: lovefcaaa
