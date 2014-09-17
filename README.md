@@ -1,13 +1,20 @@
-Enterprise-level log
-===
+#Enterprise-level log
 
-Installation: Famous 5-minute install
--------
+###Introduction
+  * The form can be extended by a multitude of log processing.
+  * Log out unified stack, when as specified on the log, are stored in the limited time Insert \ write at a time.
+  *  When the log size to specify size automatically subdirectory (on-demand table) and make a backup.
+  * Pay attention to the execution efficiency, welcome to suggest improvements.
 
-1. The form can be extended by a multitude of log processing.
+###Installation
+  * Please perform install.php when installation 
 
-2. Log out unified stack, when as specified on the log, are stored in the limited time Insert \ write at a time.
+###System Requirements
+  * PHP version 5.2.4 or higher.
+  * MySQL version 5.0 or higher.
 
-3. When the log size to specify size automatically subdirectory (on-demand table) and make a backup.
+###License
+  *PHP Enterprise-level log is distributed under GPL 2 Copyright (C) 2014 lovefcaaa <https://github.com/lovefcaaa> This library is free software; you can redistribute it and/or modify it under the terms of the GNU Lesser General Public License as published by the Free Software Foundation; either version 2 of the License, or any later version.
 
-4. Pay attention to the execution efficiency, welcome to suggest improvements.
+
+![money](https://avatars2.githubusercontent.com/u/4716309?v=2&s=460 "Thanks to the donation")
