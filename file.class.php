@@ -1,10 +1,22 @@
 <?php
+/*
+* PHP Enterprise-level log
+*
+* PHP Enterprise-level log is distributed under GPL 2
+* Copyright (C) 2014 lovefcaaa <https://github.com/lovefcaaa>
+*
+* This library is free software; you can redistribute it and/or
+* modify it under the terms of the GNU Lesser General Public
+* License as published by the Free Software Foundation; either
+* version 2 of the License, or any later version.
+*/
+
 /**
- * Php_Log_Logger_File
+ * elog_Logger_File
  * @author: lovefcaaa
  */
 require_once(dirname(__FILE__).'/base.class.php');
-class Php_Log_Logger_File extends Php_Log_Base {
+class elog_Logger_File extends elog_Base {
 
 	private $_maxFileSize = 40960;   //The maximum length of a file(KB)
 	private $_maxLogFiles = 10;      //The number of files
