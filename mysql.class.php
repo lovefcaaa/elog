@@ -1,10 +1,22 @@
 <?php
+/*
+* PHP Enterprise-level log
+*
+* PHP Enterprise-level log is distributed under GPL 2
+* Copyright (C) 2014 lovefcaaa <https://github.com/lovefcaaa>
+*
+* This library is free software; you can redistribute it and/or
+* modify it under the terms of the GNU Lesser General Public
+* License as published by the Free Software Foundation; either
+* version 2 of the License, or any later version.
+*/
+
 /**
- * Php_Log_Logger_Mysql
+ * elog_Logger_Mysql
  * @author: lovefcaaa
  */
 require_once(dirname(__FILE__).'/base.class.php');
-class Php_Log_Logger_Mysql extends Php_Log_Base {
+class elog_Logger_Mysql extends elog_Base {
     
     public $_tablename = "logs";
     public static $type = array(
@@ -43,7 +55,7 @@ class Php_Log_Logger_Mysql extends Php_Log_Base {
         }catch(Exception $e){
             error_log($this->_tablename." error:".$e->getMessage());
         }
-        Php_Log_Logger_File::instance()->set('PHP_MYSQL_LOG_ERROR:'.$insert_sql, 'error');
+        elog_Logger_File::instance()->set('PHP_MYSQL_LOG_ERROR:'.$insert_sql, 'error');
         return false;
     }
     
