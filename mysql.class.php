@@ -27,7 +27,8 @@ class elog_Logger_Mysql extends elog_Base {
     );
     protected static $_instance;
     private $_db;
-    private $_field = array('user_id', 'user_name', 'message', 'gmt_create', 'ip', 'reason', 'type', 'object_id', 'operater', );
+    private $_field = array('user_id', 'user_name', 'message', 'gmt_create', 
+    			    'ip', 'reason', 'type', 'object_id', 'operater', );
     
     public static function instance() {
         if(!(self::$_instance instanceof self)) {
@@ -59,11 +60,12 @@ class elog_Logger_Mysql extends elog_Base {
         return false;
     }
     
-    public function set($message, $operater = '1', $type = '0', $object_id = '0', $reason = '', $user_id = 0, $user_name = '') {
-        $login_user = $this->loginUser();
-        $this->_logs[$this->_logCount]['user_id'] = empty($login_user['user_id']) ? intval($user_id) : intval($login_user['user_id']);
-        $this->_logs[$this->_logCount]['user_name'] = empty($login_user['user_name']) ? $user_name : $login_user['user_name'];
-        $this->_logs[$this->_logCount]['message'] = addslashes( empty($message{255}) ? $message : substr($message,0,255) );
+    public function set($message, $operater = '1', $type = '0', $object_id = '0', 
+    			$reason = '', $user_id = 0, $user_name = '') {
+        $this->_logs[$this->_logCount]['user_id'] = intval($user_id);
+        $this->_logs[$this->_logCount]['user_name'] = $user_name;
+        $this->_logs[$this->_logCount]['message'] = 
+        	addslashes( empty($message{255}) ? $message : substr($message,0,255) );
         $this->_logs[$this->_logCount]['gmt_create'] = date('Y-m-d H:i:s', time());
         $this->_logs[$this->_logCount]['ip'] = $this->get_client_ip();
         $this->_logs[$this->_logCount]['reason'] = $reason;
@@ -75,14 +77,7 @@ class elog_Logger_Mysql extends elog_Base {
             $this->flush();
         }
     }
-    
-    public function loginUser(){
-        return array(
-            'user_id' => 1,
-            'user_name' => '',
-        );
-	}
-	
+
     public function initDB(){
     	try{
             $this->_db = new pdo('mysql:host=127.0.0.1;port=3306;dbname=root;charset=gbk',
