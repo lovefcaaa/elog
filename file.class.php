@@ -85,7 +85,8 @@ class elog_Logger_File extends elog_Base {
 	}
 	
 	public function formatLogMessage($message, $level, $time){
-		return "[".date('Ymd_H:i:s', $time)."] [".$this->get_client_ip()."] [$level] [$message] [".isset($_SERVER['REQUEST_URI']) ? $_SERVER['REQUEST_URI'] : 'NULL'."]\n";
+		return "[".date('Ymd_H:i:s', $time)."] [".$this->get_client_ip().
+		"] [$level] [$message] [".isset($_SERVER['REQUEST_URI']) ? $_SERVER['REQUEST_URI'] : 'NULL'."]\n";
 	}
 	
 	public function setLogFile($param){
@@ -116,7 +117,8 @@ class elog_Logger_File extends elog_Base {
 	
 	public function auth(){
 		global $CONFIG;
-		if(isset($CONFIG["_PHPLOG_ProductionEnvironment"]) && !in_array(php_uname("n"), $CONFIG["_PHPLOG_ProductionEnvironment"])) {
+		if(isset($CONFIG["_PHPLOG_ProductionEnvironment"]) 
+			&& !in_array(php_uname("n"), $CONFIG["_PHPLOG_ProductionEnvironment"])) {
 			return false;
 		}else{
 			return true;
